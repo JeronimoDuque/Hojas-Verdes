@@ -1,0 +1,11 @@
+[
+    {
+        "nombre" : "luis" ,
+        "id" : "1234",
+        "contraseña" : "1234",
+        "direccion" : "cr 51",
+        "telefono" : "196516545",
+        "correo electronico" : "luis@gmail.com",
+        "propiedades" : ["casa1" , "casa2"]
+    }
+]
