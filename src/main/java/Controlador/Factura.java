@@ -1,21 +1,35 @@
 package Controlador;
+
+import java.util.ArrayList;
 import java.util.Objects;
 
 public class Factura {
+    private Propietario propietario;
     private String idFactura;
     private String fechaFactura;
     private float valorMetroCuadrado;
     private float valorPagado;
+    private ArrayList<Multa> multas;
 
 
     public Factura() {
     }
 
-    public Factura(String idFactura, String fechaFactura, float valorMetroCuadrado, float valorPagado) {
+    public Factura(Propietario propietario, String idFactura, String fechaFactura, float valorMetroCuadrado, float valorPagado, ArrayList<Multa> multas) {
+        this.propietario = propietario;
         this.idFactura = idFactura;
         this.fechaFactura = fechaFactura;
         this.valorMetroCuadrado = valorMetroCuadrado;
         this.valorPagado = valorPagado;
+        this.multas = multas;
+    }
+
+    public Propietario getPropietario() {
+        return this.propietario;
+    }
+
+    public void setPropietario(Propietario propietario) {
+        this.propietario = propietario;
     }
 
     public String getIdFactura() {
@@ -50,6 +64,19 @@ public class Factura {
         this.valorPagado = valorPagado;
     }
 
+    public ArrayList<Multa> getMultas() {
+        return this.multas;
+    }
+
+    public void setMultas(ArrayList<Multa> multas) {
+        this.multas = multas;
+    }
+
+    public Factura propietario(Propietario propietario) {
+        setPropietario(propietario);
+        return this;
+    }
+
     public Factura idFactura(String idFactura) {
         setIdFactura(idFactura);
         return this;
@@ -70,6 +97,11 @@ public class Factura {
         return this;
     }
 
+    public Factura multas(ArrayList<Multa> multas) {
+        setMultas(multas);
+        return this;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (o == this)
@@ -78,22 +110,34 @@ public class Factura {
             return false;
         }
         Factura factura = (Factura) o;
-        return Objects.equals(idFactura, factura.idFactura) && Objects.equals(fechaFactura, factura.fechaFactura) && valorMetroCuadrado == factura.valorMetroCuadrado && valorPagado == factura.valorPagado;
+        return Objects.equals(propietario, factura.propietario) && Objects.equals(idFactura, factura.idFactura) && Objects.equals(fechaFactura, factura.fechaFactura) && valorMetroCuadrado == factura.valorMetroCuadrado && valorPagado == factura.valorPagado && Objects.equals(multas, factura.multas);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(idFactura, fechaFactura, valorMetroCuadrado, valorPagado);
+        return Objects.hash(propietario, idFactura, fechaFactura, valorMetroCuadrado, valorPagado, multas);
     }
 
     @Override
     public String toString() {
         return "{" +
-            " idFactura='" + getIdFactura() + "'" +
+            " propietario='" + getPropietario() + "'" +
+            ", idFactura='" + getIdFactura() + "'" +
             ", fechaFactura='" + getFechaFactura() + "'" +
             ", valorMetroCuadrado='" + getValorMetroCuadrado() + "'" +
             ", valorPagado='" + getValorPagado() + "'" +
+            ", multas='" + getMultas() + "'" +
             "}";
     }
-    
+    public String toCSV() {
+        return getPropietario() + ";" + getIdFactura() + ";" + getFechaFactura() + ";" + getValorMetroCuadrado() + ";" + getValorPagado() + ";" + getMultas();
+    }
 }
+/*
+ *  private Propietario propietario;
+    private String idFactura;
+    private String fechaFactura;
+    private float valorMetroCuadrado;
+    private float valorPagado;
+    private ArrayList<Multa> multas;
+ */

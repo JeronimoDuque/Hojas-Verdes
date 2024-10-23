@@ -81,4 +81,7 @@ public class Empleado extends Persona{
             "}";
     }
     
+    public String toCSV(){
+        return getId() + ";" + getNombre() + ";" + getContrasenna() + ";" + getCargo() + ";" + getFechaInicio() + ";" + getCalidad() ;
+    }
 }
