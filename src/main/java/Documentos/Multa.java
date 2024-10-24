@@ -1,5 +1,9 @@
-package Controlador;
+package Documentos;
 import java.util.Objects;
+
+import Personas.Propietario;
+import Propiedades.EspacioComun;
+import Propiedades.Propiedad;
 
 public class Multa {
     private String idMulta;

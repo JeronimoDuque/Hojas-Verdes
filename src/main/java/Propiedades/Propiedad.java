@@ -1,6 +1,8 @@
-package Controlador;
+package Propiedades;
 
 import java.util.Objects;
+
+import Personas.Propietario;
 
 public class Propiedad {
     private Propietario propietario;

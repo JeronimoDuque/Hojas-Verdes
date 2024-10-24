@@ -1,7 +1,7 @@
 [
     {
-        "nombre" : "luis" ,
         "id" : "1234",
+        "nombre" : "luis" ,
         "contraseña" : "1234",
         "direccion" : "cr 51",
         "telefono" : "196516545",

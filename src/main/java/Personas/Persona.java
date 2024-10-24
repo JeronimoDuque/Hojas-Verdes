@@ -1,4 +1,4 @@
-package Controlador;
+package Personas;
 import java.util.Objects;
 
 public class Persona {
@@ -77,6 +77,6 @@ public class Persona {
             ", id='" + getId() + "'" +
             ", contrasenna='" + getContrasenna() + "'" +
             "}";
-    }
-    
+    }    
+
 }

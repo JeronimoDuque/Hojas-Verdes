@@ -1,5 +1,8 @@
-package Controlador;
+package Propiedades;
+
 import java.util.Objects;
+
+import Personas.Propietario;
 
 public class Casa extends Propiedad{
     private String id;

@@ -1,4 +1,4 @@
-package Controlador;
+package Propiedades;
 import java.util.Objects;
 
 public class EspacioComun {

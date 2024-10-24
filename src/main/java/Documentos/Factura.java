@@ -1,7 +1,9 @@
-package Controlador;
+package Documentos;
 
 import java.util.ArrayList;
 import java.util.Objects;
+
+import Personas.Propietario;
 
 public class Factura {
     private Propietario propietario;

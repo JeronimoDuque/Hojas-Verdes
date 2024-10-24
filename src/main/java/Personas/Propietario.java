@@ -1,4 +1,4 @@
-package Controlador;
+package Personas;
 import java.util.Objects;
 
 public class Propietario extends Persona{
