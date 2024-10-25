@@ -2,6 +2,7 @@ package Personas;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 
 import javax.swing.JOptionPane;
@@ -24,4 +25,15 @@ public class ControladorEmpleado extends ControladorPersona{
         }
         return false;
     }
+
+    public static void guardarEmpleado(Empleado empleado){
+            try (FileWriter writer = new FileWriter(filePathEmployees)) {
+                writer.write(empleado.toCSV() + "\n"); // Escribe cada objeto como una fila de CSV
+        } catch (IOException e) {
+            System.out.println("Ocurrió un error al escribir el archivo.");
+            e.printStackTrace();
+        }
+    }
 }
+    
+

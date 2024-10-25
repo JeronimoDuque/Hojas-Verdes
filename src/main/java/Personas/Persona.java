@@ -79,4 +79,8 @@ public class Persona {
             "}";
     }    
 
+    public String toSeguridad(){
+        return getId() + ";" + getContrasenna();
+    }
+
 }

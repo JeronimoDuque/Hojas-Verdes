@@ -2,6 +2,7 @@ package Personas;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 
 import javax.swing.JOptionPane;
@@ -38,6 +39,15 @@ public class ControladorPersona {
             JOptionPane.showMessageDialog(null, "Error al leer el archivo.", "Error", JOptionPane.ERROR_MESSAGE);
         }
         return false;
+    }
+
+    public static void CrearSeguridad(Persona persona) {
+            try (FileWriter writer = new FileWriter(filePathSecurity)) {
+                writer.write(persona.toSeguridad() + "\n"); // Escribe cada objeto como una fila de CSV
+        } catch (IOException e) {
+            System.out.println("Ocurrió un error al escribir el archivo.");
+            e.printStackTrace();
+        }
     }
 
 }

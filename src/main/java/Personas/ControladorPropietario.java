@@ -7,9 +7,11 @@ import java.util.List;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
 
 public class ControladorPropietario extends ControladorPersona{
 
+    private static final ObjectMapper mapper = new ObjectMapper().enable(SerializationFeature.INDENT_OUTPUT);
     protected static final String filePathOwners = "propietarios.json";
 
     public static boolean borrarPorID(String id) {
@@ -17,21 +19,18 @@ public class ControladorPropietario extends ControladorPersona{
         boolean found = false;
 
         try {
-            // Leer el archivo JSON y cargarlo en una lista de objetos
             List<Propietario> propietarios = objectMapper.readValue(new File(filePathOwners), new TypeReference<List<Propietario>>() {});
 
-            // Usamos un iterador para eliminar el perro con el `id` especificado
             Iterator<Propietario> iterator = propietarios.iterator();
             while (iterator.hasNext()) {
                 Propietario perro = iterator.next();
                 if (perro.getId().equals(id)) {
                     iterator.remove();
                     found = true;
-                    break; // Se sale del ciclo una vez que se elimina
+                    break; 
                 }
             }
 
-            // Si se encontró y eliminó el objeto, escribimos la nueva lista en el archivo
             if (found) {
                 objectMapper.writeValue(new File(filePathOwners), propietarios);
             }
@@ -41,5 +40,16 @@ public class ControladorPropietario extends ControladorPersona{
         }
 
         return found;
+    }
+
+    public static void GuardarPropietario(Propietario propietario) throws IOException {
+        // Leer los datos existentes
+        List<Propietario> objects = mapper.readValue(new File(filePathOwners), new TypeReference<List<Propietario>>() {});
+
+        // Agregar el nuevo objeto a la lista
+        objects.add(propietario);
+
+        // Guardar la lista actualizada en el archivo JSON
+        mapper.writeValue(new File(filePathOwners), objects);
     }
 }
