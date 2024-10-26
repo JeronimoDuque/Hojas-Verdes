@@ -43,9 +43,7 @@ public class Propiedad {
     public int hashCode() {
         return Objects.hashCode(propietario);
     }
-/*
- * pregunatrle a la profesora por este error
- */
+
     @Override
     public String toString() {
         return "{" +

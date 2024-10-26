@@ -4,6 +4,12 @@
  */
 package vista;
 
+import Personas.ControladorPersona;
+
+import javax.swing.JOptionPane;
+
+import Personas.ControladorEmpleado;
+
 /**
  *
  * @author Duque
@@ -130,7 +136,25 @@ public class IniciarSesion extends javax.swing.JFrame {
     }//GEN-LAST:event_textoContrasennaActionPerformed
 
     private void ButtonIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonIniciarSesionActionPerformed
-        // TODO add your handling code here:
+        if(ControladorPersona.autenticar(textoID.getText(), textoContrasenna.getText())){
+            if(ControladorEmpleado.isEmployees(textoID.getText())){
+                if(ControladorEmpleado.isAdmin(textoID.getText())){
+                    Administradores newframe = new Administradores();
+
+                    newframe.setVisible(true);
+                }else{
+                    Empleados newframe = new Empleados();
+
+                    newframe.setVisible(true);
+                }
+            }else{
+                Propietarios newframe = new Propietarios();
+
+                newframe.setVisible(true);
+            }
+        }else{
+            JOptionPane.showMessageDialog(this, "Datos incorrectos", "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_ButtonIniciarSesionActionPerformed
 
     /**

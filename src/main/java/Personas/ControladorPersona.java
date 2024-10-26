@@ -16,6 +16,7 @@ public class ControladorPersona {
             String line;
             while ((line = br.readLine()) != null) {
                 String[] fields = line.split(";");
+
                 if (fields[0].equals(inputID) && fields[1].equals(inputClave)) {
                     return true;
                 }
@@ -42,7 +43,7 @@ public class ControladorPersona {
     }
 
     public static void CrearSeguridad(Persona persona) {
-            try (FileWriter writer = new FileWriter(filePathSecurity)) {
+            try (FileWriter writer = new FileWriter(filePathSecurity,true)) {
                 writer.write(persona.toSeguridad() + "\n"); // Escribe cada objeto como una fila de CSV
         } catch (IOException e) {
             System.out.println("Ocurrió un error al escribir el archivo.");

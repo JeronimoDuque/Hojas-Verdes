@@ -1,19 +1,21 @@
 package Personas;
+import java.util.ArrayList;
 import java.util.Objects;
+
+import Propiedades.Propiedad;
 
 public class Propietario extends Persona{
     private String direccion;
     private String telefono;
     private String correoElectronico;
     private String profesion;
-    private String propiedades;
+    private ArrayList<Propiedad> propiedades;
 
 
     public Propietario() {
     }
 
-    public Propietario(String nombre, String id, String contrasenna,String direccion, String telefono, String correoElectronico, String profesion, String propiedades) {
-        super(nombre, id, contrasenna);
+    public Propietario(String direccion, String telefono, String correoElectronico, String profesion, ArrayList<Propiedad> propiedades) {
         this.direccion = direccion;
         this.telefono = telefono;
         this.correoElectronico = correoElectronico;
@@ -53,11 +55,11 @@ public class Propietario extends Persona{
         this.profesion = profesion;
     }
 
-    public String getPropiedades() {
+    public ArrayList<Propiedad> getPropiedades() {
         return this.propiedades;
     }
 
-    public void setPropiedades(String propiedades) {
+    public void setPropiedades(ArrayList<Propiedad> propiedades) {
         this.propiedades = propiedades;
     }
 
@@ -81,7 +83,7 @@ public class Propietario extends Persona{
         return this;
     }
 
-    public Propietario propiedades(String propiedades) {
+    public Propietario propiedades(ArrayList<Propiedad> propiedades) {
         setPropiedades(propiedades);
         return this;
     }
@@ -112,5 +114,5 @@ public class Propietario extends Persona{
             ", propiedades='" + getPropiedades() + "'" +
             "}";
     }
-    
-}
+
+} 

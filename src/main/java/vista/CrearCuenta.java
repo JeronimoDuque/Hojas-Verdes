@@ -4,6 +4,7 @@ import javax.swing.JOptionPane;
 
 import Personas.ControladorEmpleado;
 import Personas.Empleado;
+import Personas.Persona;
 import Util.Hora;
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -222,18 +223,16 @@ public class CrearCuenta extends javax.swing.JFrame {
                 Hora.HoraActual(),
                 calidad
             );
-
             ControladorEmpleado.guardarEmpleado(empleado);
-
+            Persona persona = new Persona(
+                textoNombre.getText(),
+                textoID.getText(),
+                textoContrasenna.getText()
+            );
+            ControladorEmpleado.CrearSeguridad(persona);
+            dispose();
         }
-/*
- *     public Empleado(String nombre, String id, String contrasenna, String cargo, String fechaInicio, String calidad) {
-        super(nombre,id,contrasenna);
-        this.cargo = cargo;
-        this.fechaInicio = fechaInicio;
-        this.calidad = calidad;
-    }
- */
+
 
 
 

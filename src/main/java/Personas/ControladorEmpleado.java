@@ -26,8 +26,23 @@ public class ControladorEmpleado extends ControladorPersona{
         return false;
     }
 
+    public static boolean isAdmin(String id) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(filePathEmployees))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String[] fields = line.split(";");
+                if (fields[0].equals(id) && fields[3].equals("Administrador")) {
+                    return true;
+                }
+            }
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(null, "Error al leer el archivo.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        return false;
+    }
+
     public static void guardarEmpleado(Empleado empleado){
-            try (FileWriter writer = new FileWriter(filePathEmployees)) {
+            try (FileWriter writer = new FileWriter(filePathEmployees,true)) {
                 writer.write(empleado.toCSV() + "\n"); // Escribe cada objeto como una fila de CSV
         } catch (IOException e) {
             System.out.println("Ocurrió un error al escribir el archivo.");

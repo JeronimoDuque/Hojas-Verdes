@@ -6,6 +6,7 @@
         "direccion" : "cr 51",
         "telefono" : "196516545",
         "correo electronico" : "luis@gmail.com",
+        "profesion" : "medico",
         "propiedades" : ["casa1" , "casa2"]
     }
 ]
