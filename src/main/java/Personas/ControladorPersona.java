@@ -11,13 +11,12 @@ public class ControladorPersona {
 
     protected static final String filePathSecurity = "seguridad.csv";
 
-    public static boolean autenticar(String inputID, String inputClave) {
-        try (BufferedReader br = new BufferedReader(new FileReader(filePathSecurity))) {
+    public static boolean autenticar(String id, String contrasenna) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(filePathSecurity))) {
             String line;
-            while ((line = br.readLine()) != null) {
+            while ((line = reader.readLine()) != null) {
                 String[] fields = line.split(";");
-
-                if (fields[0].equals(inputID) && fields[1].equals(inputClave)) {
+                if (fields[0].equals(id) && fields[1].equals(contrasenna)) {
                     return true;
                 }
             }

@@ -4,6 +4,8 @@
  */
 package vista;
 
+import Propiedades.Propiedad;
+
 /**
  *
  * @author Duque
@@ -116,7 +118,9 @@ public class Empleados extends javax.swing.JFrame {
     }//GEN-LAST:event_ButtonConsultarPropietariosActionPerformed
 
     private void ButtonPropiedadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonPropiedadesActionPerformed
-        // TODO add your handling code here:
+        Propiedades newframe = new Propiedades();
+
+        newframe.setVisible(true);
     }//GEN-LAST:event_ButtonPropiedadesActionPerformed
 
     private void ButtonFacturarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonFacturarActionPerformed

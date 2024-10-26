@@ -152,7 +152,6 @@ public class Administradores extends javax.swing.JFrame {
     }//GEN-LAST:event_ButtonMultasActionPerformed
 
     private void ButtonConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonConsultarActionPerformed
-        ControladorPropietario.PropietriosAPDF();
         JOptionPane.showMessageDialog(this, "PDF generado con la lista de todos los clientes.");
     }//GEN-LAST:event_ButtonConsultarActionPerformed
 

@@ -83,10 +83,6 @@ public class Propietario extends Persona{
         return this;
     }
 
-    public Propietario propiedades(ArrayList<Propiedad> propiedades) {
-        setPropiedades(propiedades);
-        return this;
-    }
 
     @Override
     public boolean equals(Object o) {
